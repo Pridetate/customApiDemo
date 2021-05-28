@@ -1,6 +1,8 @@
-import React from 'react'
+import {useContext} from 'react'
 import { AppBar, Toolbar, Grid,  makeStyles,Button} from '@material-ui/core'
 import {Link} from 'react-router-dom'
+
+import {AuthContext} from '../App'
 
 const headerStyles = makeStyles({
     root:{
@@ -19,6 +21,7 @@ const headerStyles = makeStyles({
 })
 
 const Header = () => {
+    const {isAuth} = useContext(AuthContext)
     const classes = headerStyles();
     return (
         <>
@@ -35,7 +38,7 @@ const Header = () => {
                             <Button color="inherit" component={ Link } to="/displaydata" >
                                  Display hub info
                             </Button>                          
-                            <Button color="inherit" component={ Link } to="/changepassword">Change Password</Button>
+                            <Button color="inherit" component={ Link } to={isAuth?"/changepassword":"/"}>Change Password</Button>
                             <Button color="inherit" component={ Link } to="/" >Power off hub</Button>
                             <Button color="inherit" component={ Link } to="/">log out</Button>
                             

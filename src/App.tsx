@@ -29,7 +29,7 @@ function App() {
             <Route exact path = '/' component = {Login} /> 
             <Route exact path = '/signup' component = {Signup}/> 
             <Route exact path = '/displaydata' render = {()=> isAuth?<DisplayData />:(<Redirect to = '/'/>)}/> 
-            <Route exact path = '/changepassword' render = {()=> isAuth?(<Redirect to = '/'/>):<ChangePassword />} /> 
+            <Route exact path = '/changepassword' render = {()=> isAuth?<ChangePassword />:(<Redirect to = '/'/>)} /> 
             
             {/* <Route exact path = '/signin' render = {() => this.props.currentUser? (<Redirect to = '/'/>): (<SignInAndSignUpPage/>)}/> */}
             </Switch>
@@ -37,7 +37,6 @@ function App() {
        </AuthContext.Provider>
    )
 }
-
 
 
 export default App
